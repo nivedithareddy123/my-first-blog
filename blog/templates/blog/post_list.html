@@ -6,17 +6,14 @@
         <div>
             <h1><a href="/">Django Girls blog</a></h1>
         </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post:rgmcet</a></h2>
-            <p>Rajeev Gandhi Memorial College of Engineering and Technology is a Autonomous college located in Nandyal, Andhra Pradesh, India. The college is affiliated to JNTU University Anantapur and is accredited by the National Board of Accreditation. The Institute received an autonomous status in 2010</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post:CSE</a></h2>
-            <p>CSE department transforms the students into able engineers, in software, hardware ... </p>
-        </div>
+        {{ posts }}
+        {% for post in posts %}
+            <div>
+                 <p>published: {{ post.published_date }}</p>
+                 <h2><a href="">{{ post.title }}</a></h2>
+                 <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+        
     </body>
 </html>
